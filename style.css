@@ -1,0 +1,97 @@
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; 
+        }
+        
+        .code-block {
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .code-block:hover .copy-btn {
+            opacity: 1;
+        }
+        
+        /* Architecture Diagram Styles */
+        .arch-node {
+            transition: all 0.3s ease;
+        }
+        .arch-node:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .connector {
+            position: relative;
+        }
+        .connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 2rem;
+            height: 2px;
+            background-color: #94a3b8;
+            transform: translateY(-50%);
+        }
+        @media (max-width: 768px) {
+            .connector::after {
+                display: none;
+            }
+        }
+
+        /* Tab Styles */
+        .tab-btn.active {
+            border-bottom: 2px solid #22c55e;
+            color: #16a34a;
+            font-weight: 600;
+        }
+        .dark .tab-btn.active {
+            color: #4ade80;
+        }
+
+        /* Timeline for Alarm Process */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .dark .timeline-item {
+            border-left-color: #334155;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.4rem;
+            top: 0.5rem;
+            width: 0.8rem;
+            height: 0.8rem;
+            border-radius: 50%;
+            background-color: #22c55e;
+        }
+
+        /* Gallery Card Styles */
+        .gallery-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }

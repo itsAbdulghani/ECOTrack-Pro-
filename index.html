@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOTrack Pro+ User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        eco: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        },
+                        slate: {
+                            850: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+ 
+</head>
+<body class="bg-gray-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-200">
+
+    <!-- Mobile Header -->
+    <div class="lg:hidden flex items-center justify-between p-4 bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 fixed w-full z-50">
+        <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-leaf text-eco-500 text-xl"></i>
+            <span class="font-bold text-lg">ECOTrack Pro+</span>
+        </div>
+        <button id="mobile-menu-btn" class="text-gray-500 dark:text-gray-300 focus:outline-none">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full lg:translate-x-0 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-slate-700 overflow-y-auto pt-16 lg:pt-0">
+        <div class="p-6 sticky top-0 bg-white dark:bg-slate-800 z-10 border-b border-gray-100 dark:border-slate-700 hidden lg:block">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-leaf text-eco-500 text-2xl"></i>
+                    <div>
+                        <h1 class="font-bold text-xl tracking-tight">ECOTrack Pro+</h1>
+                        <span class="text-xs text-gray-500 dark:text-gray-400 font-mono">v1.2.5 Enterprise</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <i class="fa-solid fa-search absolute left-3 top-3 text-gray-400 text-sm"></i>
+                <input type="text" id="search-input" placeholder="Search manual..." class="w-full pl-9 pr-4 py-2 bg-gray-100 dark:bg-slate-900 border-none rounded-lg text-sm focus:ring-2 focus:ring-eco-500 outline-none text-slate-800 dark:text-slate-200">
+            </div>
+        </div>
+
+        <nav class="p-4 space-y-1 text-sm font-medium">
+            <a href="#introduction" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-book-open w-6 text-center"></i> Introduction
+            </a>
+            <a href="#quick-start" class="nav-link block px-4 py-2 rounded-lg bg-eco-50 dark:bg-eco-900/20 text-eco-700 dark:text-eco-400 hover:bg-eco-100 dark:hover:bg-eco-900/40 transition-colors">
+                <i class="fa-solid fa-bolt w-6 text-center"></i> Quick Start
+            </a>
+            <a href="#architecture" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-network-wired w-6 text-center"></i> System Architecture
+            </a>
+            <a href="#installation" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-download w-6 text-center"></i> Installation
+            </a>
+            <a href="#configuration" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-sliders w-6 text-center"></i> Configuration
+            </a>
+            <a href="#roles" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-users-gear w-6 text-center"></i> User Roles & RBAC
+            </a>
+            <a href="#operations" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-gauge-high w-6 text-center"></i> Operations
+            </a>
+            <a href="#alarms" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-bell w-6 text-center"></i> Alarms & Handling
+            </a>
+            <a href="#logging" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-chart-line w-6 text-center"></i> Logging & Reports
+            </a>
+            <a href="#gallery" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-images w-6 text-center"></i> Image Gallery
+            </a>
+            <a href="#backup" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-database w-6 text-center"></i> Backup & Restore
+            </a>
+            <a href="#maintenance" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-screwdriver-wrench w-6 text-center"></i> Maintenance
+            </a>
+            <a href="#appendices" class="nav-link block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors">
+                <i class="fa-solid fa-file-contract w-6 text-center"></i> Appendices & Forms
+            </a>
+        </nav>
+        
+        <div class="p-4 mt-auto border-t border-gray-200 dark:border-slate-700">
+             <div class="flex items-center justify-between">
+                <span class="text-sm font-medium">Dark Mode</span>
+                <button id="theme-toggle" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-600 transition-colors focus:outline-none">
+                    <span class="sr-only">Toggle dark mode</span>
+                    <span id="toggle-circle" class="translate-x-1 inline-block h-4 w-4 transform rounded-full bg-white transition-transform dark:translate-x-6"></span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="lg:ml-72 p-6 lg:p-10 pt-20 lg:pt-10 max-w-6xl mx-auto">
+        
+        <!-- Document Meta -->
+        <div class="mb-8 border-b border-gray-200 dark:border-slate-700 pb-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-1 rounded-md bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 text-xs font-semibold">Doc: EMS-UM-1.2.5</span>
+                <span class="px-2 py-1 rounded-md bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 text-xs font-semibold">Pharma / GMP / 21 CFR Part 11</span>
+                <span class="px-2 py-1 rounded-md bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300 text-xs font-semibold">Updated: Sep 26, 2025</span>
+            </div>
+            <h1 class="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-2">User Manual</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400">Comprehensive guide for the installation, configuration, and operation of the ECOTrack Pro+ Environmental Monitoring System.</p>
+        </div>
+
+        <!-- Section: Introduction -->
+        <section id="introduction" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">1</span>
+                Introduction
+            </h2>
+            <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
+                <p class="mb-4">
+                    The ECOTrack Pro+ Monitoring System is an enterprise-grade solution designed for real-time monitoring of critical environmental parameters in pharmaceutical environments.
+                    It ensures compliance with <strong>21 CFR Part 11</strong> and <strong>ISO 14644-1</strong>.
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 mt-6">
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700">
+                        <h3 class="font-bold text-eco-600 dark:text-eco-400 mb-2">Key Features</h3>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li>Real-time temp/humidity/pressure and Particle counts monitoring</li>
+                            <li>Electronic signatures for data integrity</li>
+                            <li>Automated audit trails</li>
+                            <li>Visual & SMS Alarming</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700">
+                        <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-2">Compliance</h3>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li>FDA 21 CFR Part 11 (Electronic Records)</li>
+                            <li>EU GMP Annex 1</li>
+                            <li>Installation/Operational Qualification (IQ/OQ)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Quick Start (Visual Improvement) -->
+        <section id="quick-start" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3"><i class="fa-solid fa-bolt"></i></span>
+                Quick Start Guide
+            </h2>
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl p-6 text-white shadow-lg">
+                <p class="mb-6 text-slate-300">Get the system running in 4 steps. For detailed instructions, refer to the full installation section.</p>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="relative pl-8 md:pl-0">
+                        <div class="absolute left-0 top-0 md:relative w-8 h-8 bg-eco-500 rounded-full flex items-center justify-center font-bold mb-2">1</div>
+                        <h4 class="font-bold mb-1">Install DB</h4>
+                        <p class="text-xs text-slate-400">Deploy the SQL Server Docker container with persistent storage.</p>
+                    </div>
+                    <div class="relative pl-8 md:pl-0">
+                        <div class="absolute left-0 top-0 md:relative w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center font-bold mb-2">2</div>
+                        <h4 class="font-bold mb-1">Service Setup</h4>
+                        <p class="text-xs text-slate-400">Install the Windows Service for hardware comms (ADAM modules).</p>
+                    </div>
+                    <div class="relative pl-8 md:pl-0">
+                        <div class="absolute left-0 top-0 md:relative w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center font-bold mb-2">3</div>
+                        <h4 class="font-bold mb-1">Web Launch</h4>
+                        <p class="text-xs text-slate-400">Access <code class="bg-black/30 px-1 rounded">localhost:8080</code> and apply license key.</p>
+                    </div>
+                    <div class="relative pl-8 md:pl-0">
+                        <div class="absolute left-0 top-0 md:relative w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center font-bold mb-2">4</div>
+                        <h4 class="font-bold mb-1">Config Sensors</h4>
+                        <p class="text-xs text-slate-400">Add Data Modules and map sensors in the dashboard.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Architecture (Visual Improvement) -->
+        <section id="architecture" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">2</span>
+                System Architecture
+            </h2>
+            <p class="mb-6 text-gray-600 dark:text-gray-400">The system uses a hybrid architecture combining Docker containers for the web/DB layer and native Windows Services for hardware communication.</p>
+            
+            <!-- Interactive Diagram -->
+            <div class="bg-white dark:bg-slate-800 p-8 rounded-xl border border-gray-200 dark:border-slate-700 overflow-x-auto">
+                <div class="flex flex-col md:flex-row items-center justify-between min-w-[600px] gap-8">
+                    
+                    <!-- Web Node -->
+                    <div class="arch-node group w-48 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg text-center cursor-pointer connector">
+                        <div class="text-3xl text-blue-500 mb-2"><i class="fa-brands fa-docker"></i></div>
+                        <h3 class="font-bold text-slate-700 dark:text-slate-200">Web App</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">ASP.NET Core</p>
+                        <div class="hidden group-hover:block absolute z-10 bg-black text-white text-xs p-2 rounded mt-2 w-48 -ml-4 shadow-xl">
+                            Runs UI on port 8080. Handles user sessions and reporting.
+                        </div>
+                    </div>
+
+                    <!-- DB Node -->
+                    <div class="arch-node group w-48 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg text-center cursor-pointer connector">
+                        <div class="text-3xl text-green-500 mb-2"><i class="fa-solid fa-database"></i></div>
+                        <h3 class="font-bold text-slate-700 dark:text-slate-200">Database</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">SQL Server</p>
+                        <div class="hidden group-hover:block absolute z-10 bg-black text-white text-xs p-2 rounded mt-2 w-48 -ml-4 shadow-xl">
+                            Stores logs, configs, and audit trails. Port 1433.
+                        </div>
+                    </div>
+
+                    <!-- Windows Service Node -->
+                    <div class="arch-node group w-48 p-4 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg text-center cursor-pointer connector">
+                        <div class="text-3xl text-orange-500 mb-2"><i class="fa-brands fa-windows"></i></div>
+                        <h3 class="font-bold text-slate-700 dark:text-slate-200">Win Service</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Background Worker</p>
+                        <div class="hidden group-hover:block absolute z-10 bg-black text-white text-xs p-2 rounded mt-2 w-48 -ml-4 shadow-xl">
+                            Polls sensors every 60s. Processes alarms logic.
+                        </div>
+                    </div>
+
+                    <!-- Hardware Node -->
+                    <div class="arch-node group w-48 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-center cursor-pointer">
+                        <div class="text-3xl text-red-500 mb-2"><i class="fa-solid fa-microchip"></i></div>
+                        <h3 class="font-bold text-slate-700 dark:text-slate-200">Hardware</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">ADAM-4000</p>
+                        <div class="hidden group-hover:block absolute z-10 bg-black text-white text-xs p-2 rounded mt-2 w-48 -ml-4 shadow-xl">
+                            Connected via RS-485/Modbus. COM5.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Installation -->
+        <section id="installation" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">3</span>
+                Installation Instructions
+            </h2>
+
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="border-l-4 border-eco-500 pl-4">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white">Step 1: Database Setup</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2">Start the database container using Docker Compose.</p>
+                    <div class="code-block bg-slate-900 rounded-lg p-4 text-sm text-blue-300 font-mono overflow-x-auto">
+                        <button class="copy-btn bg-white/20 hover:bg-white/40 text-white px-2 py-1 rounded text-xs" onclick="copyCode(this)">Copy</button>
+                        <code>docker-compose -f docker-compose-deploy.yml up -d db</code>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="border-l-4 border-eco-500 pl-4">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white">Step 2: Windows Service Install</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2">Publish and install the background service. Run PowerShell as Administrator.</p>
+                    <div class="code-block bg-slate-900 rounded-lg p-4 text-sm text-blue-300 font-mono overflow-x-auto">
+                        <button class="copy-btn bg-white/20 hover:bg-white/40 text-white px-2 py-1 rounded text-xs" onclick="copyCode(this)">Copy</button>
+                        <code class="block mb-2">cd ECOTrackPro.Service</code>
+                        <code class="block mb-2">.\deploy.ps1 -Configuration Release -OutputPath "..\publish" -SkipBuild:$false</code>
+                        <code class="block text-green-400"># Install the service</code>
+                        <code class="block">.\install-service.ps1 -BinaryPath "..\publish\EnvironmentalMonitoring.Service.exe"</code>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="border-l-4 border-eco-500 pl-4">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white">Step 3: App Configuration</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2">Edit <code class="bg-gray-200 dark:bg-slate-700 px-1 rounded text-sm">appsettings.json</code> to configure COM ports.</p>
+                    <div class="code-block bg-slate-900 rounded-lg p-4 text-sm text-green-300 font-mono overflow-x-auto">
+                        <button class="copy-btn bg-white/20 hover:bg-white/40 text-white px-2 py-1 rounded text-xs" onclick="copyCode(this)">Copy</button>
+<pre>{
+  "Hardware": {
+    "AdamPortSettings": {
+      "PortName": "COM5",
+      "BaudRate": 9600,
+      "DataBits": 8,
+      "Parity": "None",
+      "StopBits": "One"
+    }
+  }
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Configuration (Expanded with Tabs) -->
+        <section id="configuration" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">4</span>
+                System Configuration
+            </h2>
+            
+            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden">
+                <!-- Tab Headers -->
+                <div class="flex border-b border-gray-200 dark:border-slate-700">
+                    <button class="tab-btn px-6 py-3 text-sm font-medium hover:text-eco-600 active" onclick="switchTab(event, 'config-sensors')">Sensors</button>
+                    <button class="tab-btn px-6 py-3 text-sm font-medium text-gray-500 hover:text-eco-600" onclick="switchTab(event, 'config-hardware')">Hardware</button>
+                    <button class="tab-btn px-6 py-3 text-sm font-medium text-gray-500 hover:text-eco-600" onclick="switchTab(event, 'config-calib')">Calibration</button>
+                    <button class="tab-btn px-6 py-3 text-sm font-medium text-gray-500 hover:text-eco-600" onclick="switchTab(event, 'config-alarm-dev')">Alarm Devices</button>
+                </div>
+
+                <!-- Tab: Sensors -->
+                <div id="config-sensors" class="tab-content p-6">
+                    <p class="mb-4 text-gray-600 dark:text-gray-400 text-sm">
+                        Navigate to <strong>System > Sensors > Add New</strong>. 
+                        <strong>Input Range</strong> is the raw signal (e.g., 4-20mA). <strong>Scale Range</strong> is the engineering unit (e.g., 0-50°C).
+                    </p>
+                    <div class="overflow-hidden border border-gray-200 dark:border-slate-700 rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-slate-700">
+                            <thead class="bg-gray-50 dark:bg-slate-700">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-bold uppercase">Parameter</th>
+                                    <th class="px-6 py-3 text-left text-xs font-bold uppercase">Description</th>
+                                    <th class="px-6 py-3 text-left text-xs font-bold uppercase">Example</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-slate-700 text-sm">
+                                <tr>
+                                    <td class="px-6 py-3 font-medium">Input Min/Max</td>
+                                    <td class="px-6 py-3">Raw signal range (4-20mA or 0-10V)</td>
+                                    <td class="px-6 py-3">4.0 - 20.0</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-medium">Scale Min/Max</td>
+                                    <td class="px-6 py-3">Engineering units (Display value)</td>
+                                    <td class="px-6 py-3">0.0 - 50.0 (°C)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-3 font-medium">Offset</td>
+                                    <td class="px-6 py-3">Calibration adjustment</td>
+                                    <td class="px-6 py-3">±0.5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab: Hardware -->
+                <div id="config-hardware" class="tab-content p-6 hidden">
+                    <h3 class="font-bold mb-3">ADAM-4000 Integration</h3>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li><strong>Analog Input:</strong> ADAM-4017 / 4018 (Temp, Pressure)</li>
+                        <li><strong>Digital Output:</strong> ADAM-4060 (Relays, Alarms)</li>
+                        <li><strong>Protocol:</strong> Modbus RTU over RS-485</li>
+                        <li><strong>Default Baud:</strong> 9600, Data Bits: 8, Parity: None, Stop: 1</li>
+                    </ul>
+                </div>
+
+                <!-- Tab: Calibration -->
+                <div id="config-calib" class="tab-content p-6 hidden">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-100 dark:border-blue-800 mb-4">
+                        <h4 class="font-bold text-blue-700 dark:text-blue-300 text-sm">Calibration Process (Offset Method)</h4>
+                        <ol class="list-decimal list-inside text-sm text-blue-800 dark:text-blue-200 mt-2 space-y-1">
+                            <li>Measure environment with certified reference device.</li>
+                            <li>Compare Reference Value vs. System Uncalibrated Reading.</li>
+                            <li>Calculate Offset: <code>Offset = Reference - Reading</code>.</li>
+                            <li>Enter new Offset in the system. E-Signature required.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Tab: Alarm Devices -->
+                <div id="config-alarm-dev" class="tab-content p-6 hidden">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-4 border border-gray-200 dark:border-slate-700 rounded bg-gray-50 dark:bg-slate-900">
+                            <h4 class="font-bold mb-2"><i class="fa-solid fa-lightbulb text-yellow-500 mr-2"></i>Relay Output</h4>
+                            <p class="text-xs text-gray-500 mb-2">Physical sirens/strobes connected to ADAM-4060.</p>
+                            <code class="text-xs bg-gray-200 dark:bg-black p-1 rounded">Channel: 0-7</code>
+                        </div>
+                        <div class="p-4 border border-gray-200 dark:border-slate-700 rounded bg-gray-50 dark:bg-slate-900">
+                            <h4 class="font-bold mb-2"><i class="fa-solid fa-mobile-screen text-blue-500 mr-2"></i>SMS Modem</h4>
+                            <p class="text-xs text-gray-500 mb-2">GSM modem connected to COM4.</p>
+                            <code class="text-xs bg-gray-200 dark:bg-black p-1 rounded">Address: +1234567890</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: User Roles -->
+        <section id="roles" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">5</span>
+                User Roles & RBAC
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Admin -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-sm border-t-4 border-red-500">
+                    <h3 class="font-bold text-lg mb-2">Administrator</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Full system access. Manage users, sensors, system settings.</p>
+                    <div class="text-xs font-mono bg-gray-100 dark:bg-slate-900 p-2 rounded">
+                        Permissions:<br>- USER_MGMT<br>- SYSTEM_CONFIG<br>- AUDIT_VIEW_ALL
+                    </div>
+                </div>
+                <!-- Operator -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-sm border-t-4 border-blue-500">
+                    <h3 class="font-bold text-lg mb-2">Operator</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Daily monitoring. Acknowledge alarms and view reports.</p>
+                    <div class="text-xs font-mono bg-gray-100 dark:bg-slate-900 p-2 rounded">
+                        Permissions:<br>- ALARM_ACK<br>- REPORT_GEN<br>- DASHBOARD_VIEW
+                    </div>
+                </div>
+                <!-- Auditor -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-sm border-t-4 border-gray-500">
+                    <h3 class="font-bold text-lg mb-2">Auditor</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Read-only access to historical data/audit trails.</p>
+                    <div class="text-xs font-mono bg-gray-100 dark:bg-slate-900 p-2 rounded">
+                        Permissions:<br>- READ_ONLY<br>- AUDIT_EXPORT
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+                <p class="text-sm text-yellow-800 dark:text-yellow-200">
+                    <strong>Note:</strong> Default Admin login is <code>admin</code> / <code>admin123</code>. Change immediately after first login!
+                </p>
+            </div>
+        </section>
+
+        <!-- Section: Operations -->
+        <section id="operations" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">6</span>
+                Operating Instructions
+            </h2>
+            
+            <h3 class="text-xl font-bold mb-3">Dashboard Overview</h3>
+            <div class="bg-gray-100 dark:bg-slate-800 p-4 rounded-lg mb-6 border border-gray-200 dark:border-slate-700">
+                <!-- Mock Dashboard Visual -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="bg-white dark:bg-slate-700 p-4 rounded shadow-sm border-l-4 border-green-500">
+                        <span class="block text-xs text-gray-500 dark:text-gray-400">Room A Temperature</span>
+                        <span class="text-2xl font-bold text-slate-800 dark:text-white">22.5°C</span>
+                        <span class="text-xs text-green-500">Normal</span>
+                    </div>
+                    <div class="bg-white dark:bg-slate-700 p-4 rounded shadow-sm border-l-4 border-red-500 animate-pulse">
+                        <span class="block text-xs text-gray-500 dark:text-gray-400">Room B Humidity</span>
+                        <span class="text-2xl font-bold text-red-600">85.0%</span>
+                        <span class="text-xs text-red-600 font-bold">HIGH ALARM</span>
+                    </div>
+                    <div class="bg-white dark:bg-slate-700 p-4 rounded shadow-sm border-l-4 border-yellow-500">
+                        <span class="block text-xs text-gray-500 dark:text-gray-400">Room C Pressure</span>
+                        <span class="text-2xl font-bold text-yellow-600">10.0 Pa</span>
+                        <span class="text-xs text-yellow-600">Warning</span>
+                    </div>
+                     <div class="bg-white dark:bg-slate-700 p-4 rounded shadow-sm border-l-4 border-green-500">
+                        <span class="block text-xs text-gray-500 dark:text-gray-400">Particle Count</span>
+                        <span class="text-2xl font-bold text-slate-800 dark:text-white">5000</span>
+                        <span class="text-xs text-green-500">Normal</span>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-gray-500 mt-2">Figure 6.1: Real-time Monitoring Dashboard</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-bold mb-2">Daily Verification Checklist</h3>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li><strong>Start of Shift:</strong> Review Alarm Log for unresolved issues.</li>
+                        <li><strong>Critical Sensors:</strong> Verify readings match expected ranges.</li>
+                        <li><strong>Audit Trail:</strong> Check for unauthorized config changes.</li>
+                        <li><strong>Data Gaps:</strong> Ensure trends show continuous logging.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Common Actions</h3>
+                     <ul class="list-disc list-inside space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li>Click any sensor card to view <strong>4-hour History Trend</strong>.</li>
+                        <li>Use the top Filter Bar to sort by <strong>Location</strong> or <strong>Sensor Type</strong>.</li>
+                        <li>Export current view using the <strong>PDF Export</strong> button.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Alarms -->
+        <section id="alarms" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">7</span>
+                Alarm Handling & Resolution
+            </h2>
+
+            <div class="space-y-6">
+                <div class="border-l-4 border-red-500 pl-6 py-2">
+                    <h3 class="font-bold text-lg">Alarm Resolution Workflow</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Follow this strict protocol for all critical alarms.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-sm">1. Identification</h4>
+                            <p class="text-xs text-gray-500">System triggers Audio/Visual alarm. Dashboard shows RED.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-sm">2. Acknowledgment (Operator)</h4>
+                            <p class="text-xs text-gray-500">Click "Acknowledge" in Alarm Log. This silences the buzzer but keeps the record active.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-sm">3. Investigation & Action</h4>
+                            <p class="text-xs text-gray-500">Investigate root cause (e.g., HVAC failure, Door open). Fix the issue.</p>
+                        </div>
+                        <div class="timeline-item">
+                             <h4 class="font-bold text-sm">4. Resolution (Supervisor)</h4>
+                            <p class="text-xs text-gray-500">Once reading returns to normal, click "Resolve". Enter comment and E-Signature.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded border border-gray-200 dark:border-slate-700">
+                    <h4 class="font-bold text-sm mb-2">Notification Methods</h4>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <span class="font-semibold">Local:</span>
+                            <span class="text-gray-600 dark:text-gray-400">Dashboard flash, Tower Light, Horn.</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold">Remote:</span>
+                            <span class="text-gray-600 dark:text-gray-400">SMS to defined group, Email alerts.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Logging & Reports -->
+        <section id="logging" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">8</span>
+                Data Logging & Reports
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold mb-3">Data Integrity</h3>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li><strong>Interval:</strong> Every 60 seconds (default).</li>
+                        <li><strong>Storage:</strong> SQL Server with checksum validation.</li>
+                        <li><strong>Retention:</strong> Minimum 7 years (configurable).</li>
+                        <li><strong>Security:</strong> Read-only historical data.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-3">Available Reports</h3>
+                    <div class="overflow-hidden border border-gray-200 dark:border-slate-700 rounded-lg">
+                        <table class="min-w-full text-sm">
+                            <thead class="bg-gray-50 dark:bg-slate-700">
+                                <tr>
+                                    <th class="px-4 py-2 text-left">Report Type</th>
+                                    <th class="px-4 py-2 text-left">Contents</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-slate-700">
+                                <tr>
+                                    <td class="px-4 py-2 font-medium">Daily Summary</td>
+                                    <td class="px-4 py-2">Min/Max/Avg for all sensors.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-medium">Alarm Event</td>
+                                    <td class="px-4 py-2">Log of all alarms and resolutions.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-medium">Audit Trail</td>
+                                    <td class="px-4 py-2">User actions, logins, changes.</td>
+                                </tr>
+                                 <tr>
+                                    <td class="px-4 py-2 font-medium">Detailed Trend</td>
+                                    <td class="px-4 py-2">Time-series data graphs.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Image Gallery -->
+        <section id="gallery" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3"><i class="fa-solid fa-images"></i></span>
+                Visual Gallery
+            </h2>
+            <p class="mb-6 text-gray-600 dark:text-gray-400">Visual documentation of system components, installation procedures, and reference materials.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Image 1 -->
+                <div class="gallery-card bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative overflow-hidden">
+                        <img src="images/login page.jpeg" alt="System Overview Diagram" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-sm">Secure and Controlled System Access.</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-800 dark:text-white">Secure Login</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Ensuring Protected and Authorized Access to the System.</p>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="gallery-card bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative overflow-hidden">
+                        <img src="images/adam-setup.png" alt="Hardware Setup" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-sm">ADAM-4000 modules with proper cabling</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-800 dark:text-white">Hardware Components</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">ADAM-4000 series modules setup</p>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="gallery-card bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative overflow-hidden">
+                        <img src="images/new monitor.PNG" alt="Dashboard Screenshot" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-sm">Main dashboard interface with real-time data</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-800 dark:text-white">Dashboard Interface</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Real-time monitoring dashboard</p>
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="gallery-card bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative overflow-hidden">
+                        <img src="images/sensor add.PNG" alt="Sensor Installation" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-sm">Temperature and humidity sensors mounted</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-800 dark:text-white">Sensor Installation</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Proper mounting of sensors</p>
+                    </div>
+                </div>
+
+                <!-- Image 5 -->
+                <div class="gallery-card bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative overflow-hidden">
+                        <img src="images/alarms.png" alt="Alarm Panel" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-sm">Visual and audible alarm systems</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-800 dark:text-white">Alarm Systems</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Visual and audible alert devices</p>
+                    </div>
+                </div>
+
+                <!-- Image 6 -->
+                <div class="gallery-card bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative overflow-hidden">
+                        <img src="images/calibration log.jpeg" alt="Cabling Diagram" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-sm">RS-485 cabling and termination diagram</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-800 dark:text-white">Calibration Layout</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Proper RS-485 cabling diagram</p>
+                    </div>
+                </div>
+                <!-- Image 7 -->
+                <div class="gallery-card bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative overflow-hidden">
+                        <img src="images/audit trial.jpeg" alt="Cabling Diagram" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-sm">Maintaining reliable system performance with calibrated inputs.</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-800 dark:text-white">Sensor Calibration</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Ensuring measurement accuracy through controlled calibration.</p>
+                    </div>
+                </div>
+                <!-- Image 8 -->
+                <div class="gallery-card bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative overflow-hidden">
+                        <img src="images/usermanagment.jpeg" alt="Cabling Diagram" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-sm">Centralized management of system users and accounts.</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-800 dark:text-white">Account Administration</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Maintaining controlled and structured user access.</p>
+                    </div>
+                </div>
+                <!-- Image 9 -->
+                <div class="gallery-card bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="relative overflow-hidden">
+                        <img src="images/graph view .jpeg" alt="Cabling Diagram" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-sm">Generating documented records for review and compliance.</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-800 dark:text-white">PDF Reporting</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Structured and reliable reporting in PDF format.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Section: Backup -->
+        <section id="backup" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">10</span>
+                Backup & Restore
+            </h2>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-100 dark:border-blue-800">
+                <h3 class="font-bold text-blue-800 dark:text-blue-300 mb-4">Disaster Recovery Procedures</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-sm mb-2">Automated Backup</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">Runs every 24 hours (Full) and 4 hours (Diff).</p>
+                        <code class="text-xs bg-white dark:bg-slate-900 p-2 rounded block border border-gray-200 dark:border-slate-700">Path: \\network-storage\ems_backups</code>
+                    </div>
+                    <div>
+                         <h4 class="font-bold text-sm mb-2">Restore Process</h4>
+                         <ol class="list-decimal list-inside text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                            <li>Stop Windows Service.</li>
+                            <li>Open SQL Management Studio.</li>
+                            <li>Tasks > Restore > Select latest .bak file.</li>
+                            <li>Verify data integrity post-restore.</li>
+                         </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Maintenance -->
+        <section id="maintenance" class="scroll-mt-24 mb-16 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">11</span>
+                Maintenance & Troubleshooting
+            </h2>
+            
+            <h3 class="font-bold mb-3">Routine Maintenance Schedule</h3>
+            <div class="overflow-hidden border border-gray-200 dark:border-slate-700 rounded-lg mb-8">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-gray-50 dark:bg-slate-700">
+                        <tr>
+                            <th class="px-6 py-3 text-left font-bold">Frequency</th>
+                            <th class="px-6 py-3 text-left font-bold">Task</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-slate-700">
+                        <tr>
+                            <td class="px-6 py-3 font-medium">Weekly</td>
+                            <td class="px-6 py-3">Check backup logs. Verify server disk space.</td>
+                        </tr>
+                         <tr>
+                            <td class="px-6 py-3 font-medium">Monthly</td>
+                            <td class="px-6 py-3">Test Alarm relays (Horns/Lights). Test SMS gateway.</td>
+                        </tr>
+                         <tr>
+                            <td class="px-6 py-3 font-medium">Annually</td>
+                            <td class="px-6 py-3">Full sensor calibration. Disaster recovery drill.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="font-bold mb-3">Error Codes</h3>
+            <div class="mb-4">
+                <input type="text" id="error-search" onkeyup="filterErrors()" placeholder="Type error code (e.g., E-COMM)..." class="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 focus:ring-2 focus:ring-eco-500 outline-none">
+            </div>
+
+            <div class="bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 overflow-hidden">
+                <table id="error-table" class="min-w-full text-sm">
+                    <thead class="bg-gray-50 dark:bg-slate-700">
+                        <tr>
+                            <th class="px-6 py-3 text-left font-bold">Code</th>
+                            <th class="px-6 py-3 text-left font-bold">Issue</th>
+                            <th class="px-6 py-3 text-left font-bold">Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-slate-700">
+                        <tr class="error-row">
+                            <td class="px-6 py-4 font-mono text-red-500 font-bold">E-COMM-001</td>
+                            <td class="px-6 py-4">Serial port timeout (ADAM module)</td>
+                            <td class="px-6 py-4">Check RS-485 wiring, power supply, and COM settings in JSON.</td>
+                        </tr>
+                        <tr class="error-row">
+                            <td class="px-6 py-4 font-mono text-red-500 font-bold">E-DB-101</td>
+                            <td class="px-6 py-4">Database connection failed</td>
+                            <td class="px-6 py-4">Verify SQL Server container is running and credentials match .env file.</td>
+                        </tr>
+                        <tr class="error-row">
+                            <td class="px-6 py-4 font-mono text-red-500 font-bold">E-LIC-200</td>
+                            <td class="px-6 py-4">License expired/invalid</td>
+                            <td class="px-6 py-4">Generate new key via LicenseConsole and apply in web UI.</td>
+                        </tr>
+                        <tr class="error-row">
+                            <td class="px-6 py-4 font-mono text-red-500 font-bold">E-VAL-300</td>
+                            <td class="px-6 py-4">Sensor reading out of input range</td>
+                            <td class="px-6 py-4">Sensor failure or disconnection. Check 4-20mA loop integrity.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section: Appendices -->
+        <section id="appendices" class="scroll-mt-24 mb-24 section-content">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="w-8 h-8 rounded bg-eco-500 text-white flex items-center justify-center text-sm mr-3">12</span>
+                Appendices
+            </h2>
+
+            <!-- Appendix A: Specs -->
+            <div class="mb-8">
+                <h3 class="text-lg font-bold mb-2">Appendix A: System Specifications</h3>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded border border-gray-200 dark:border-slate-700">
+                        <h4 class="font-bold mb-2">Server Specs</h4>
+                        <ul class="space-y-1 text-gray-600 dark:text-gray-400">
+                            <li>OS: Windows Server 2019/2022</li>
+                            <li>CPU: 4 Cores, 2.5GHz+</li>
+                            <li>RAM: 16 GB Minimum</li>
+                            <li>Storage: 2 TB SSD</li>
+                        </ul>
+                    </div>
+                     <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded border border-gray-200 dark:border-slate-700">
+                        <h4 class="font-bold mb-2">Database Specs</h4>
+                        <ul class="space-y-1 text-gray-600 dark:text-gray-400">
+                            <li>Platform: MS SQL Server 2019+</li>
+                            <li>Storage: ~10MB per sensor/year</li>
+                            <li>Collation: SQL_Latin1_General_CP1_CI_AS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appendix C: Checklists -->
+            <h3 class="text-lg font-bold mb-4">Appendix C: Interactive Training Checklists</h3>
+            <p class="mb-4 text-sm text-gray-500">Progress is saved automatically in your browser.</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <!-- Operator List -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg border border-gray-200 dark:border-slate-700">
+                    <h3 class="font-bold text-lg mb-4 text-eco-600 dark:text-eco-400">Operator Training</h3>
+                    <ul class="space-y-3" id="operator-list">
+                        <!-- Items generated by JS -->
+                        <li class="flex items-center space-x-3">
+                            <input type="checkbox" id="op1" class="w-5 h-5 rounded border-gray-300 text-eco-600 focus:ring-eco-500">
+                            <label for="op1" class="text-gray-700 dark:text-gray-300">Login & Authentication</label>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <input type="checkbox" id="op2" class="w-5 h-5 rounded border-gray-300 text-eco-600 focus:ring-eco-500">
+                            <label for="op2" class="text-gray-700 dark:text-gray-300">Dashboard Navigation</label>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <input type="checkbox" id="op3" class="w-5 h-5 rounded border-gray-300 text-eco-600 focus:ring-eco-500">
+                            <label for="op3" class="text-gray-700 dark:text-gray-300">Alarm Acknowledgment</label>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <input type="checkbox" id="op4" class="w-5 h-5 rounded border-gray-300 text-eco-600 focus:ring-eco-500">
+                            <label for="op4" class="text-gray-700 dark:text-gray-300">Report Generation</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Admin List -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg border border-gray-200 dark:border-slate-700">
+                    <h3 class="font-bold text-lg mb-4 text-purple-600 dark:text-purple-400">Admin Training</h3>
+                    <ul class="space-y-3" id="admin-list">
+                         <li class="flex items-center space-x-3">
+                            <input type="checkbox" id="ad1" class="w-5 h-5 rounded border-gray-300 text-eco-600 focus:ring-eco-500">
+                            <label for="ad1" class="text-gray-700 dark:text-gray-300">System Installation</label>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <input type="checkbox" id="ad2" class="w-5 h-5 rounded border-gray-300 text-eco-600 focus:ring-eco-500">
+                            <label for="ad2" class="text-gray-700 dark:text-gray-300">Sensor Configuration</label>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <input type="checkbox" id="ad3" class="w-5 h-5 rounded border-gray-300 text-eco-600 focus:ring-eco-500">
+                            <label for="ad3" class="text-gray-700 dark:text-gray-300">User Management (RBAC)</label>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <input type="checkbox" id="ad4" class="w-5 h-5 rounded border-gray-300 text-eco-600 focus:ring-eco-500">
+                            <label for="ad4" class="text-gray-700 dark:text-gray-300">Backup & Recovery</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-right mb-8">
+                <button onclick="resetChecklists()" class="text-sm text-red-500 hover:text-red-700 underline">Reset Checklists</button>
+            </div>
+
+            <!-- Appendix D: Forms -->
+            <div class="p-6 border-t border-gray-200 dark:border-slate-700">
+                 <h3 class="text-lg font-bold mb-4">Appendix D: Change Control Form Template</h3>
+                 <div class="bg-white p-8 shadow-sm border border-gray-300 text-black font-serif text-sm">
+                    <div class="text-center font-bold text-lg mb-4 border-b border-black pb-2">STANDARD CHANGE REQUEST</div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>Request #: __________________</div>
+                        <div>Date: __________________</div>
+                    </div>
+                    <div class="mb-4">Requester Name: _________________________________________</div>
+                    <div class="mb-4">
+                        <div class="font-bold">Description of Change:</div>
+                        <div class="h-16 border border-gray-300 mt-1"></div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="font-bold">Justification & Risk Assessment:</div>
+                        <div class="h-16 border border-gray-300 mt-1"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div>Approved By: __________________</div>
+                        <div>Date: __________________</div>
+                    </div>
+                 </div>
+                 <div class="text-center mt-2">
+                    <button onclick="window.print()" class="text-sm text-blue-500 hover:underline"><i class="fa-solid fa-print"></i> Print Form</button>
+                 </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Dark Mode Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const toggleCircle = document.getElementById('toggle-circle');
+        const html = document.documentElement;
+
+        // Check local storage or system preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            toggleCircle.classList.add('translate-x-6');
+            toggleCircle.classList.remove('translate-x-1');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                toggleCircle.classList.add('translate-x-6');
+                toggleCircle.classList.remove('translate-x-1');
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleCircle.classList.remove('translate-x-6');
+                toggleCircle.classList.add('translate-x-1');
+            }
+        });
+
+        // Mobile Sidebar Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        mobileBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Tab Switching Logic
+        function switchTab(evt, tabName) {
+            // Hide all tab content
+            const contents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.add("hidden");
+            }
+            // Remove active class from buttons
+            const buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            // Show current tab and activate button
+            document.getElementById(tabName).classList.remove("hidden");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Global Search Functionality
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('keyup', (e) => {
+            const term = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const text = section.innerText.toLowerCase();
+                // Simple highlight effect or scroll logic could be added here
+                // For now, we will just console log hits for debugging
+                if(text.includes(term) && term.length > 2) {
+                   // Ideally highlight or scroll to first match
+                }
+            });
+        });
+
+        // Error Table Filter
+        function filterErrors() {
+            const input = document.getElementById('error-search');
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById('error-table');
+            const tr = table.getElementsByClassName('error-row');
+
+            for (let i = 0; i < tr.length; i++) {
+                const tdCode = tr[i].getElementsByTagName("td")[0];
+                const tdText = tr[i].getElementsByTagName("td")[1];
+                if (tdCode || tdText) {
+                    const txtValueCode = tdCode.textContent || tdCode.innerText;
+                    const txtValueText = tdText.textContent || tdText.innerText;
+                    if (txtValueCode.toUpperCase().indexOf(filter) > -1 || txtValueText.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        // Copy Code Function
+        function copyCode(btn) {
+            const code = btn.nextElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                }, 2000);
+            });
+        }
+
+        // Checklist Logic (LocalStorage)
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        
+        // Load state
+        checkboxes.forEach(box => {
+            const savedState = localStorage.getItem(box.id);
+            if (savedState === 'true') {
+                box.checked = true;
+            }
+            
+            box.addEventListener('change', () => {
+                localStorage.setItem(box.id, box.checked);
+            });
+        });
+
+        function resetChecklists() {
+            checkboxes.forEach(box => {
+                box.checked = false;
+                localStorage.removeItem(box.id);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1575,6 +1575,85 @@
     <!-- AR.js for augmented reality features -->
     <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.5/aframe/build/aframe-ar.min.js"></script>
 
+    <script>
+        // Ensure Chart.js is loaded before initializing
+        function initializeChartsWhenReady() {
+            if (typeof Chart !== 'undefined') {
+                // Initialize particle chart
+                if (document.getElementById('particleChart') && !window.particleChartInitialized) {
+                    const ctx = document.getElementById('particleChart').getContext('2d');
+                    window.particleChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+                            datasets: [
+                                {
+                                    label: '0.1μm Particles',
+                                    data: [1200, 1100, 1350, 1245, 1300, 1150, 1220],
+                                    borderColor: '#8b5cf6',
+                                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                                    tension: 0.4,
+                                    fill: true
+                                },
+                                {
+                                    label: '0.3μm Particles',
+                                    data: [250, 220, 240, 234, 245, 230, 235],
+                                    borderColor: '#a78bfa',
+                                    backgroundColor: 'rgba(167, 139, 250, 0.1)',
+                                    tension: 0.4,
+                                    fill: true
+                                },
+                                {
+                                    label: '0.5μm Particles',
+                                    data: [50, 45, 55, 45, 52, 48, 47],
+                                    borderColor: '#c4b5fd',
+                                    backgroundColor: 'rgba(196, 181, 253, 0.1)',
+                                    tension: 0.4,
+                                    fill: true
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Particle Count Trend (24 Hours)'
+                                },
+                                legend: {
+                                    position: 'top',
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Particle Count (particles/m³)'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Time'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    window.particleChartInitialized = true;
+                }
+            } else {
+                // Retry after a short delay if Chart.js isn't loaded yet
+                setTimeout(initializeChartsWhenReady, 100);
+            }
+        }
+
+        // Start the initialization process
+        initializeChartsWhenReady();
+    </script>
+
     <script src="main.js"></script>
 </body>
 </html>

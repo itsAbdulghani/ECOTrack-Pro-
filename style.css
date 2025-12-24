@@ -95,3 +95,71 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
+
+        /* Particle Count Dashboard Styles */
+        .particle-dashboard {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        .dark .particle-dashboard {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        /* Floor Mapping Styles */
+        .floor-map-container {
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .sensor-dot {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .sensor-dot:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
+        .sensor-status-normal { background-color: #22c55e; }
+        .sensor-status-warning { background-color: #f59e0b; }
+        .sensor-status-alarm { background-color: #ef4444; }
+
+        /* 3D Visualization Placeholder */
+        .cube-placeholder {
+            perspective: 1000px;
+        }
+        .cube-placeholder-inner {
+            transform-style: preserve-3d;
+            animation: rotate 10s infinite linear;
+        }
+        @keyframes rotate {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        /* Zone Management Styles */
+        .zone-card {
+            transition: all 0.3s ease;
+        }
+        .zone-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Chart canvas styles */
+        #particleChart {
+            width: 100% !important;
+            height: 100% !important;
+            max-height: 320px;
+        }
+
+        /* Responsive adjustments for new features */
+        @media (max-width: 768px) {
+            .floor-map-container {
+                height: 400px;
+            }
+            .sensor-status-panel {
+                height: 300px;
+            }
+            #particleChart {
+                max-height: 250px;
+            }
+        }
